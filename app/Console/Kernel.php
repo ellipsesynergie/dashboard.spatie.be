@@ -32,12 +32,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $scheduled = [
-        \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
-        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyFiveMinutes',
-        \App\Components\GitHub\FetchGitHubFileContent::class => 'everyFiveMinutes',
         \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
         \App\Components\Packagist\FetchTotals::class => 'hourly',
-        \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',
     ];
 
     /**
