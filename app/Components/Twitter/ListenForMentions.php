@@ -31,9 +31,11 @@ class ListenForMentions extends Command
     {
         $this->info('Listening for tweets...');
 
+        $keywords = explode(',', config('laravel-twitter-streaming-api.keywords'));
+
         app(TwitterStreamingApi::class)
             ->publicStream()
-            ->whenHears(['spatie.be', '@spatie_be', 'github.com/spatie'], function (array $tweetProperties) {
+            ->whenHears($keywords, function (array $tweetProperties) {
                 event(new Mentioned($tweetProperties));
             })
             ->startListening();
