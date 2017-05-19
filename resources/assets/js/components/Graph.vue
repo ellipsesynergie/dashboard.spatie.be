@@ -24,6 +24,26 @@ export default {
             type: String,
             required: true,
         },
+        displayXLabels: {
+            type: Boolean,
+            default: false
+        },
+        displayYLabels: {
+            type: Boolean,
+            default: false
+        },
+        maxTicksLimit: {
+            type: Number,
+            default: 6
+        },
+        suggestedYMax: {
+            type: Number,
+            default: 100
+        },
+        pointRadius: {
+            type: Number,
+            default: 0
+        }
     },
 
     mounted() {
@@ -38,16 +58,16 @@ export default {
             options: {
                 scales: {
                     xAxes: [{
-                        display: false,
+                        display: this.displayXLabels,
                         ticks: {
-                            maxTicksLimit: 6,
+                            maxTicksLimit: this.maxTicksLimit,
                         },
                     }],
                     yAxes: [{
-                        display: false,
+                        display: this.displayYLabels,
                         ticks: {
                             beginAtZero: true,
-                            suggestedMax: 100,
+                            suggestedMax: this.suggestedYMax,
                         },
                     }],
                 },
@@ -65,7 +85,7 @@ export default {
                 borderColor: this.lineColor,
                 backgroundColor: this.backgroundColor,
                 borderWidth: 2,
-                pointRadius: 0,
+                pointRadius: this.pointRadius,
             };
         },
     },

@@ -177,6 +177,7 @@ return [
         App\Providers\CollectionServiceProvider::class,
         Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
         Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
+        Spatie\Analytics\AnalyticsServiceProvider::class,
     ],
 
     /*
@@ -193,6 +194,7 @@ return [
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,

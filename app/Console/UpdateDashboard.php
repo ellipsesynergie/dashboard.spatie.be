@@ -17,5 +17,6 @@ class UpdateDashboard extends Command
     {
         $this->call('dashboard:heartbeat');
         $this->call('dashboard:packagist');
+        $this->call('dashboard:google-analytics');
     }
 }
