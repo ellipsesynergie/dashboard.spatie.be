@@ -21,5 +21,6 @@ class UpdateDashboard extends Command
         $this->call('dashboard:lastfm');
         $this->call('dashboard:packagist');
         $this->call('dashboard:rain');
+        $this->call('dashboard:google-analytics');
     }
 }

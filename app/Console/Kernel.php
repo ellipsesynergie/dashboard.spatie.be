@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Exceptions\Handler;
 use Exception;
+use App\Components\Analytics\FetchGoogleAnalytics;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,6 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        \App\Components\Analytics\FetchGoogleAnalytics::class,
         \App\Components\GitHub\FetchGitHubFileContent::class,
         \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class,
         \App\Components\LastFm\FetchCurrentTrack::class,
@@ -38,6 +40,7 @@ class Kernel extends ConsoleKernel
         \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
         \App\Components\Packagist\FetchTotals::class => 'hourly',
         \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',
+        \App\Components\Analytics\FetchGoogleAnalytics::class => 'hourly',
     ];
 
     /**
