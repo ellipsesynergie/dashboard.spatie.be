@@ -17,7 +17,7 @@ class FetchGoogleAnalytics extends Command
      *
      * @var string
      */
-    protected $signature = 'dashboard:analytics';
+    protected $signature = 'dashboard:google-analytics';
 
     /**
      * The console command description.
@@ -36,7 +36,7 @@ class FetchGoogleAnalytics extends Command
         $viewIds = explode(',', config('laravel-analytics.view_id'));
 
         foreach ($viewIds as $viewId) {
-            $totalVisits = AnalyticsHelper::getView($viewId)->fetchTotalVisitorsAndPageViews(Period::days(7));
+            $totalVisits = AnalyticsHelper::getView($viewId)->fetchTotalVisitorsAndPageViews(Period::days(config('laravel-analytics.number_of_days', 7)));
 
             $days = [];
             $visitors = [];
@@ -50,6 +50,5 @@ class FetchGoogleAnalytics extends Command
 
             event(new AnalyticsFetched($viewId, compact('days', 'visitors', 'pageViews')));
         }
-
     }
 }
