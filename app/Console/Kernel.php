@@ -34,6 +34,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $scheduled = [
+        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyFiveMinutes',
         \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
         \App\Components\Packagist\FetchTotals::class => 'hourly',
         \App\Components\Analytics\FetchGoogleAnalytics::class => 'hourly',
