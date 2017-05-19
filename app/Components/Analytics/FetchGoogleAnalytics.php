@@ -6,6 +6,10 @@ use App\Events\Analytics\AnalyticsFetched;
 use Illuminate\Console\Command;
 use Spatie\Analytics\Period;
 
+/**
+ * Class FetchGoogleAnalytics
+ * @package App\Components\Analytics
+ */
 class FetchGoogleAnalytics extends Command
 {
     /**
