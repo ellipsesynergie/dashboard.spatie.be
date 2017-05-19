@@ -15,7 +15,7 @@ class UpdateDashboard extends Command
      */
     public function handle()
     {
-		$this->call('dashboard:calendar');
+        $this->call('dashboard:calendar');
         $this->call('dashboard:heartbeat');
         $this->call('dashboard:packagist');
         $this->call('dashboard:google-analytics');
